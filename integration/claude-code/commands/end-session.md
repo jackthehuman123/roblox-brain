@@ -7,4 +7,5 @@ Vault: ~/Documents/vaults/roblox-brain · Game: <GAME>
 2. Ask me which decisions from this session I confirm. Append only those to games/<GAME>/decisions.md (one line each, with the why).
 3. List every note in handoffs/ whose status isn't `done`.
 4. List anything new in inbox/ and any candidate.md marked PROMOTABLE.
-5. Remind me to commit **both** repos (the game repo and the vault). Do not commit for me.
+5. Update the **Current state** section (and this machine's **Machines** row if tools changed) in ~/Documents/vaults/roblox-brain/CLAUDE.md. The vault is used on several machines and Claude memory doesn't sync.
+6. Remind me to commit **both** repos (the game repo and the vault). Do not commit for me.

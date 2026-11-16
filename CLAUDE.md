@@ -19,3 +19,27 @@ Read your `agents/<name>/card.md`, its `lessons.md`, and the files under **Loads
 - Use [[wikilinks]] between notes.
 - Never self-grade. Scores are pasted verbatim from harness output.
 - To hand work off, write a note in `handoffs/` from [[handoffs/_template]].
+
+## Keep this file current (multi-machine)
+This vault is used from more than one machine. Claude's memory is per-machine and does **not** travel. This file and git do.
+- Before ending a session in which project state changed, update **Current state** below and commit. Do this with `/end-session` too.
+- Put durable facts in the vault, not in Claude memory. Machine-specific facts go under **Machines**.
+- On a new machine: `git pull`, read **Current state**, then check the Machines entry for this host (`hostname -s`) and add one if missing.
+
+## Current state
+Last updated: 2026-11-16
+- Scaffold done. Research drafts written (all still `TODO(verify)`): [[roblox/gotchas]], [[pipeline/assets]], [[pipeline/cutscenes]], [[pipeline/prior-art]].
+- Subagent wrappers list `Roblox_Studio` / `blender` MCP tools. Server names not yet confirmed via `/mcp`.
+- No game folder yet (only `games/_template/`). [[studio]] is still placeholders and waiting on human answers (team, versions, naming, place IDs).
+- Open for humans: `inbox/2026-11-16-research-for-humans.md`, `inbox/2026-11-16-install-smoke-test.md`.
+- Next:
+  1. Open Studio, enable its MCP, register it in Claude Code, and test tools against a blank place.
+  2. Import the test FBX files in Studio to pin the forward axis (Z vs −Z). The test files were temporary, so re-export them per the inbox note.
+  3. Install Rojo/Wally/Selene/StyLua and uv.
+
+## Machines
+Paths in `integration/` assume the vault is at `~/Documents/vaults/roblox-brain`. Keep it there on every machine or update those files.
+
+| Host | Blender | Roblox Studio | Claude Code | Studio MCP in Claude | Notes |
+|---|---|---|---|---|---|
+| Hungs-MacBook-Air (macOS) | 5.3.0 | 0.747.0 | 2.1.325 | not registered | no rojo/wally/selene/stylua/uv yet. Checked 2026-11-16 |
