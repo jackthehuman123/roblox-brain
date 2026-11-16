@@ -28,13 +28,14 @@ This vault is used from more than one machine. Claude's memory is per-machine an
 
 ## Current state
 Last updated: 2026-11-16
-- Scaffold done. Research drafts written (all still `TODO(verify)`): [[roblox/gotchas]], [[pipeline/assets]], [[pipeline/cutscenes]], [[pipeline/prior-art]].
-- Subagent wrappers list `Roblox_Studio` / `blender` MCP tools. Server names not yet confirmed via `/mcp`.
-- No game folder yet (only `games/_template/`). [[studio]] is still placeholders and waiting on human answers (team, versions, naming, place IDs).
+- Research drafts (all still `TODO(verify)`): [[roblox/gotchas]], [[pipeline/assets]], [[pipeline/cutscenes]], [[pipeline/prior-art]].
+- **Training sandbox:** repo `~/Documents/roblox-sandbox` (local only, no remote yet), vault game `games/sandbox/`. Harness: `harness/score.sh <task> [train|holdout]` (Blender checks → Open Cloud upload → measure in Studio via MCP). The Blender part is self-tested; upload and Studio parts have not run yet.
+- **evals:** asset-builder task bank (train 001–005, holdout 101–102) + `evals/assets/baselines.md` were written by an agent under a one-time exception (see `games/sandbox/decisions.md`). Humans must review them. The rule is back in force.
+- [[studio]] is still placeholders waiting on human answers. Server-scripter and cutscene-integrator have no tasks yet.
 - Open for humans: `inbox/2026-11-16-research-for-humans.md`, `inbox/2026-11-16-install-smoke-test.md`.
 - Next:
-  1. Open Studio, enable its MCP, register it in Claude Code, and test tools against a blank place.
-  2. Import the test FBX files in Studio to pin the forward axis (Z vs −Z). The test files were temporary, so re-export them per the inbox note.
+  1. In Studio, open a TEST place and enable the Studio MCP server. Put `ROBLOX_API_KEY` (assets read+write) and `ROBLOX_CREATOR_USER_ID` in `~/Documents/roblox-sandbox/.env`.
+  2. In the sandbox, run `claude --add-dir ~/Documents/vaults/roblox-brain`, then `/train asset-builder 5`. Task 005 settles the Z vs −Z forward axis.
   3. Install Rojo/Wally/Selene/StyLua and uv.
 
 ## Machines
