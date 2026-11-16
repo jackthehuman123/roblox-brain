@@ -8,7 +8,7 @@ Read your `agents/<name>/card.md`, its `lessons.md`, and the files under **Loads
 
 ## Ownership
 - Humans only: `studio.md`, `games/*/spec.md`, `evals/**`, the **Never** section of every card, and promoting `candidate.md` → `card.md`.
-- You may write: `runs/`, `agents/*/candidate.md`, `agents/*/lessons.md` (proposals), `games/*/next.md`, `games/*/decisions.md` (only after a human confirms), `handoffs/`, `inbox/`.
+- You may write: `runs/`, `agents/*/candidate.md`, `agents/*/lessons.md` (proposals), `games/*/next.md`, `games/*/decisions.md` (only after a human confirms), `handoffs/`, `inbox/`, and `refs/asset-design/` (asset-researcher only; asset-builder loads a pinned version via its card).
 - **Never edit anything under `evals/`**, by any means (Edit, Write, Bash, or scripts). Changing a test or baseline to pass is the #1 failure mode. If a test looks wrong, write a note in `inbox/`.
 - Agents propose, humans decide. Your writes are proposals until a human promotes them.
 
