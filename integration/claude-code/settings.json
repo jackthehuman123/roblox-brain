@@ -1,8 +1,7 @@
 {
   "permissions": {
     "deny": [
-      "Edit(~/Documents/vaults/roblox-brain/evals/**)",
-      "Write(~/Documents/vaults/roblox-brain/evals/**)"
+      "Edit(~/Documents/vaults/roblox-brain/evals/**)"
     ]
   }
 }

@@ -1,8 +1,8 @@
 # Spec: sandbox
-Humans only. Last verified: <DATE>
+Humans only. Last verified: 16.22.2026
 
 ## Goal
-<one or two sentences>
+Train simple asset builder agent
 
 ## Must always be true (3–5 invariants)
 1. 

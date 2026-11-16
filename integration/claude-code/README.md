@@ -13,7 +13,7 @@ Then use `/train <agent> <n>`, `/train <agent> holdout`, and `/end-session`.
 
 Notes:
 - The subagent files are thin wrappers. The rules live in the vault cards, so don't copy rules into them.
-- Deny rules block Claude's Edit/Write tools. They do **not** stop a Bash command from writing files. CLAUDE.md forbids that, and humans should review `git diff evals/` in the vault before committing. TODO(verify): consider also denying Bash patterns that touch `evals/`.
+- The `Edit(...)` deny rule blocks all of Claude's file-editing tools, including Write, so no `Write(...)` rule is needed (Claude Code warns that one "never matches"). They do **not** stop a Bash command from writing files. CLAUDE.md forbids that, and humans should review `git diff evals/` in the vault before committing. TODO(verify): consider also denying Bash patterns that touch `evals/`.
 - Subagent `tools:` lists now name MCP tools, assuming the servers are registered as `Roblox_Studio` and `blender`. Check the real names with `/mcp`. TODO(verify)
 
 ## MCP setup (docs checked 2026-11-16, unconfirmed)
