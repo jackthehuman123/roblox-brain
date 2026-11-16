@@ -29,7 +29,7 @@ See [[integration/claude-code/README]]. In short: copy the subagents and command
 `claude --add-dir ~/Documents/vaults/roblox-brain`.
 
 ## Training
-[[pipeline/loop]]. Scores come from the harness (in the game repo), never from an agent's self-report. See [[evals/README]].
+[[pipeline/loop]]. What others use: [[pipeline/prior-art]]. Scores come from the harness (in the game repo), never from an agent's self-report. See [[evals/README]].
 
 ## Review rhythm
 - **End of every session:** `/end-session`, then commit both repos.

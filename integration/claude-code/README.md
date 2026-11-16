@@ -14,4 +14,9 @@ Then use `/train <agent> <n>`, `/train <agent> holdout`, and `/end-session`.
 Notes:
 - The subagent files are thin wrappers. The rules live in the vault cards, so don't copy rules into them.
 - Deny rules block Claude's Edit/Write tools. They do **not** stop a Bash command from writing files. CLAUDE.md forbids that, and humans should review `git diff evals/` in the vault before committing. TODO(verify): consider also denying Bash patterns that touch `evals/`.
-- TODO(verify): add the Roblox Studio MCP / Blender MCP tool names to each subagent's `tools:` list once the MCP servers are set up.
+- Subagent `tools:` lists now name MCP tools, assuming the servers are registered as `Roblox_Studio` and `blender`. Check the real names with `/mcp`. TODO(verify)
+
+## MCP setup (docs checked 2026-11-16, unconfirmed)
+- **Roblox Studio MCP (built into Studio).** The old `Roblox/studio-rust-mcp-server` was archived Apr 2026. In Studio: Assistant → ⋯ → Manage MCP Servers → *Enable Studio as MCP server* → Quick connect → Claude Code. Manual (macOS): `claude mcp add --transport stdio Roblox_Studio -- /Applications/RobloxStudio.app/Contents/MacOS/StudioMCP`. Every tool takes a `studio_id`; call `list_roblox_studios` first ([docs](https://create.roblox.com/docs/studio/mcp)). TODO(verify)
+- **Blender MCP (community, `ahujasid/blender-mcp`).** Install the addon in Blender, open Blender first, then `claude mcp add blender uvx blender-mcp`. The package name has varied across releases, so check the README ([repo](https://github.com/ahujasid/blender-mcp)). Main tool: `execute_blender_code` (arbitrary Python in Blender). TODO(verify)
+- Studio MCP has `multi_edit`, which edits scripts inside Studio and so bypasses Rojo. Keep it off script-writing agents so files on disk stay the source of truth.
