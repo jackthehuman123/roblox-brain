@@ -20,3 +20,8 @@ Raw FBX header values, read straight from the file:
 - `list_roblox_studios` → `{"studios":[]}`: Studio wasn't running, so `tools/list` had nothing to proxy.
 - Not yet registered in Claude Code (`claude mcp list`).
 - Note: the proxy logged "Allowed unauthenticated WebSocket request". Keep it local-only.
+
+## Update 2026-11-16: end-to-end harness test (known-good fixtures, not agent work)
+- Crate → `RESULT studio PASS 3/3`, size 4×4×4 studs. Signpost (Z fwd and −Z fwd) → `RESULT studio PASS 4/4` both times, tip at −Z.
+- So the forward-axis question only matters for the manual 3D Importer, which isn't tested yet. TODO(human): decide whether to keep "Z Forward" in [[pipeline/assets]].
+- Uploaded test assets: 131986190012997, 81787414193831, 132622712916476 (delete from Creations if you like).

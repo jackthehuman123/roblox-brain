@@ -29,13 +29,13 @@ This vault is used from more than one machine. Claude's memory is per-machine an
 ## Current state
 Last updated: 2026-11-16
 - Research drafts (all still `TODO(verify)`): [[roblox/gotchas]], [[pipeline/assets]], [[pipeline/cutscenes]], [[pipeline/prior-art]].
-- **Training sandbox:** repo `~/Documents/roblox-sandbox` (local only, no remote yet), vault game `games/sandbox/`. Harness: `harness/score.sh <task> [train|holdout]` (Blender checks → Open Cloud upload → measure in Studio via MCP). The Blender part is self-tested; upload and Studio parts have not run yet.
+- **Training sandbox:** repo `~/Documents/roblox-sandbox` (local only, no remote yet), vault game `games/sandbox/`. Harness: `harness/score.sh <task> [train|holdout]` (Blender checks → Open Cloud upload → measure in Studio via MCP). Harness verified end to end 2026-11-16 with known-good fixtures: crate 4×4×4 → Studio 4×4×4 studs; signpost front → −Z. 3 test assets were uploaded and the place has a `HarnessImports` folder.
 - **evals:** asset-builder task bank (train 001–005, holdout 101–102) + `evals/assets/baselines.md` were written by an agent under a one-time exception (see `games/sandbox/decisions.md`). Humans must review them. The rule is back in force.
 - [[studio]] is still placeholders waiting on human answers. Server-scripter and cutscene-integrator have no tasks yet.
 - Open for humans: `inbox/2026-11-16-research-for-humans.md`, `inbox/2026-11-16-install-smoke-test.md`.
 - Next:
-  1. In Studio, open a TEST place and enable the Studio MCP server. Put `ROBLOX_API_KEY` (assets read+write) and `ROBLOX_CREATOR_USER_ID` in `~/Documents/roblox-sandbox/.env`.
-  2. In the sandbox, run `claude --add-dir ~/Documents/vaults/roblox-brain`, then `/train asset-builder 5`. Task 005 settles the Z vs −Z forward axis.
+  1. Humans: review `evals/` (commit 6194512) and fill `games/sandbox/spec.md`.
+  2. In the sandbox, run `claude --add-dir ~/Documents/vaults/roblox-brain`, then `/train asset-builder 5`. Needs Studio open with MCP enabled, plus `.env` (not in git; copy it by hand to other machines).
   3. Install Rojo/Wally/Selene/StyLua and uv.
 
 ## Machines
@@ -43,4 +43,4 @@ Paths in `integration/` assume the vault is at `~/Documents/vaults/roblox-brain`
 
 | Host | Blender | Roblox Studio | Claude Code | Studio MCP in Claude | Notes |
 |---|---|---|---|---|---|
-| Hungs-MacBook-Air (macOS) | 5.3.0 | 0.747.0 | 2.1.325 | not registered | no rojo/wally/selene/stylua/uv yet. Checked 2026-11-16 |
+| Hungs-MacBook-Air (macOS) | 5.3.0 | 0.747.0 | 2.1.325 | via sandbox `.mcp.json`; `.env` set | harness passed 2026-11-16. No rojo/wally/selene/stylua/uv yet. Checked 2026-11-16 |

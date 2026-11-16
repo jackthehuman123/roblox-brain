@@ -14,13 +14,18 @@ Docs checked: 2026-11-16 by agent. Values below are from Roblox docs ([blender](
 ## FBX export settings
 - Path Mode: **Copy** + **Embed Textures** on (otherwise grey mesh) TODO(verify)
 - Apply Scalings: **FBX Unit Scale**. All other scales 1.0. Not 0.01, which is the old advice and now a fallback only. TODO(verify)
-- Forward / Up axis: **Z Forward / Y Up** per Roblox's Blender page. Community guides say −Z Forward; settle it with the calibration export. TODO(verify)
+- Forward / Up axis: **Z Forward / Y Up** per Roblox's Blender page. TODO(verify)
+  - Tested 2026-11-16 (Blender 5.3.0 → Open Cloud upload → Studio 0.747): Z and −Z forward gave the **same** result. Geometry on Blender **−Y** (the side the Front view looks at) ends up on Roblox **−Z** (front / LookVector). The importer honours the FBX axis metadata, so model the front toward Blender −Y.
+  - Tested 2026-11-16: FBX Unit Scale + Unit System None → **1 Blender unit = 1 stud** in Studio (4×4×4 cube measured 4×4×4).
 - Armature: **Add Leaf Bones off**
 - Bake Animation: off unless exporting keyframed animation
 - Selected objects only: <YES/NO>
 - Other: <SETTINGS>
 
-## Studio import (3D Importer)
+## Studio import
+- Scripted route (training): Open Cloud Assets API upload (FBX → Model) → load by asset ID. See [[games/sandbox/decisions]].
+
+### Manual route (3D Importer)
 - File Transform: World Forward **Front**, World Up **Top** TODO(verify)
 - File Geometry: Scale Unit **Stud** TODO(verify)
 - After import: record the asset ID in `games/<GAME>/assets.md`
