@@ -19,7 +19,7 @@ Loads (pending, separate from the above so holdout can tell them apart):
 + @refs/asset-design/index.md (vN)   ← add once asset-researcher has written a version a human has skimmed; test it on holdout on its own
 
 ## Not for the card (human decisions)
-- The agent cannot self-run `harness/check_fbx.py`: it takes the task file under `evals/`, which agents may not read. All 3 runs hit this. Option: let check_fbx.py take the `check:` JSON inline, and have the orchestrator pass it in.
+- ~~The agent cannot self-run `harness/check_fbx.py`~~ Resolved 2026-11-16 (human decision): check_fbx.py takes the `check:` JSON inline, and /train passes it in the subagent prompt. See [[games/sandbox/decisions]].
 - Harness gap: Studio checks total size only, not the Model pivot / bottom-center in Studio (r003).
 - No task exercises embedded textures yet (all three "no textures").
 - pipeline/assets.md still leaves triangulation undecided (r001).
